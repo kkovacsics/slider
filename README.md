@@ -1,0 +1,2 @@
+# slider
+JavaScript image slider
