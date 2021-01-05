@@ -3,6 +3,7 @@
 import { params } from './params.js';
 import { images } from './images.js';
 
+const container = document.querySelector('.container');
 const slide = document.querySelector('.slide');
 const slide_dots = document.querySelector('.slide_dots');
 const slide_caption = document.querySelector('.slide_caption');
@@ -57,6 +58,9 @@ function showHideImages(index) {
 document.querySelector('.slide_prev').addEventListener('click', prevImage);
 document.querySelector('.slide_next').addEventListener('click', nextImage);
 images.forEach((image, index) => image.dot.addEventListener('click', ()=>showHideImages(index)));
+// autoplay beállítás/törlés
+container.addEventListener('mouseout', () => container.classList.add('autoplay'));
+container.addEventListener('mouseover', () => container.classList.remove('autoplay'));
 
 // legyen az első kép látható
 showHideImages(0);
@@ -68,7 +72,7 @@ slide.style.height = `${params.image_height}px`;
 // induljon egy automatikus lejátszás
 (function autoPlay(){
     setTimeout(() => {
-        nextImage();
+        container.classList.contains('autoplay') && nextImage();
         autoPlay();
     }, params.period);
 })();

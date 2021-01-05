@@ -12,6 +12,10 @@ body {
 .container {
     margin: 0 auto;
     max-width: 1000px;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" style="font-size: 30px; font-weight: bold;"><text y="30">℗</text></svg>'), auto;
+}
+.autoplay {
+    cursor: default;
 }
 
 .slide {
